@@ -7,18 +7,6 @@
       "capacidade": 60
     },
     {
-      "id": 2,
-      "nome": "FUp",
-      "curso": "ES",
-      "capacidade": 60
-    },
-    {
-      "nome": "APS",
-      "curso": "ES",
-      "capacidade": "40",
-      "id": 3
-    },
-    {
       "nome": "FBD",
       "curso": "SI",
       "capacidade": "20",
@@ -29,6 +17,12 @@
       "curso": "ES",
       "capacidade": "14",
       "id": 5
+    },
+    {
+      "nome": "Teste",
+      "curso": "WEB",
+      "capacidade": "1",
+      "id": 6
     }
   ]
 }
