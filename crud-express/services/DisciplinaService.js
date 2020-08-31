@@ -1,7 +1,11 @@
 const DisciplinaModel =require ('../models/DisciplinaModel')
 
-let disciplinas= []
-let _id = 0
+let disciplinas= [
+    {_id:0,nome:'FBD',curso:"SI",capacidade:20},
+    {_id:1,nome:'FUP',curso:"ES",capacidade:30},
+    {_id:2,nome:'WEB',curso:"Design",capacidade:25}
+]
+let _id = 3
 
 
 class DisciplinaService {
@@ -12,7 +16,7 @@ class DisciplinaService {
             _id++,
             data.nome,
             data.curso,
-            data.quantidade
+            data.capacidade
         )
         disciplina.push(disciplina)
 
@@ -29,7 +33,7 @@ class DisciplinaService {
             if(e._id == _id){
                 e.nome = data.nome
                 e.curso = data.curso
-                e.quantidade = data.quantidade
+                e.capacidade = data.capacidade
             }
             return e
         }

@@ -1,11 +1,11 @@
 class DisciplinaModel{
 
-    constructor(_id,nome,curso,quantidade){
+    constructor(_id,nome,curso,capacidade){
 
         this._id=_id
         this.nome=nome
         this.curso =curso
-        this.quantidade = quantidade
+        this.capacidade =capacidade
 
     }
 

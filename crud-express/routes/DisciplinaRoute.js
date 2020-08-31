@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var DisciplinaService = require('../services/DisciplinaServisce')
+var DisciplinaService = require('../services/DisciplinaService')
 
 router.get('/list',function(req,res,next){
     res.json(DisciplinaService.list())

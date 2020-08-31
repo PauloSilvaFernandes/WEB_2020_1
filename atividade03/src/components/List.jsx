@@ -13,7 +13,10 @@ export default class List extends Component{
     }
    
     componentDidMount(){
-        axios.get('http://localhost:3000/disciplina')
+        //axios.get('http://localhost:3000/disciplina')
+
+        axios.get("http://localhost:3002/disciplina/list")
+
         .then(
             (res)=>{
               //  console.log(res.data)
@@ -38,7 +41,7 @@ export default class List extends Component{
         let disciplinaTemp = this.state.disciplinas
 
         for(let i= 0 ;i<disciplinaTemp.length;i++){
-            if(disciplinaTemp[i].id===id){
+            if(disciplinaTemp[i]._id===id){
                 disciplinaTemp.splice(i,1)
             }
         }
@@ -57,7 +60,7 @@ export default class List extends Component{
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>Curso</th>
-                                <th>Quantidade</th>
+                                <th>Capacidade</th>
                                 <th colSpan='2'></th>
                             </tr>
                     </thead>
