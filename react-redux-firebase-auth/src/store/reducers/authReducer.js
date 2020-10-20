@@ -1,14 +1,28 @@
+import {SIGNUP_SUCESS,SIGNUP_ERROR} from '../actions/actionTypes'
+
+
 const INTIAL_STATE = {
 
-    auth_msg: null,
+    authMsg: null,
     user:null
 }
 
 export default function(state = INTIAL_STATE,action){
 
-    return {
-        ...state,
-        auth_msg:'logado com sucesso',
-        user:'pgsf@hotmail.com'
+    switch(action.type){
+        case SIGNUP_SUCESS:
+            return{
+                ...state,
+                authMsg: action.payload.authMessage,
+                user: action.payload.userMail,
+            }
+        case SIGNUP_ERROR:
+            return{
+                ...state,
+                authMsg: action.payload.authMessage,
+            }
+            default:
+                return state
     }
+
 }
