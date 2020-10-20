@@ -7,7 +7,7 @@ export default class Content extends Component {
         return (
           
             <Card title='ContentB'>
-
+                Conteudo B
             </Card>
         )
     }
