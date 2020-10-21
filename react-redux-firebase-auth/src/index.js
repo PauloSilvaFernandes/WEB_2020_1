@@ -5,26 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {createStore, applyMiddleware} from 'redux'
+
 import {Provider} from 'react-redux'
 import {ReactReduxFirebaseProvider} from 'react-redux-firebase'
-import reduxThunk from 'redux-thunk'
 
-import reducer from './store/reducers' 
-import firebase from './ultils/firebase'
-
-const store= createStore(
-  reducer,
-  {},
-  applyMiddleware(reduxThunk)
-)
-
-const rrfProps = {
-  firebase,
-  config:{},
-  dispatch: store.dispatch
-
-}
+import {rrfProps,store} from './store/storeConfig'
 
 ReactDOM.render(
   <Provider store={store}>
