@@ -1,4 +1,4 @@
-import {SIGNUP_SUCESS,SIGNUP_ERROR,SIGNIN_SUCESS,SIGNIN_ERROR,SIGNOUT_SUCESS,SIGNOUT_ERROR} from './actionTypes'
+import {SIGNUP_SUCESS,SIGNUP_ERROR,SIGNIN_SUCESS,SIGNIN_ERROR,SIGNOUT_SUCESS,SIGNOUT_ERROR,EMAIL_NOT_VERIFIED,RESET_AUTH_MSG} from './actionTypes'
 
 
 import firebase from '../../ultils/firebase'
@@ -14,15 +14,27 @@ export const signup = (email,password) => {
                 ()=>{
                     firebase.auth().onAuthStateChanged(
                         (user)=>{
+                            user.sendEmailVerification()
+                        }
+                    )
+                }
+
+            )
+            .then(
+                ()=>{
+                    firebase.auth().onAuthStateChanged(
+                        (user)=>{
                             if(user){
                                 dispatch(
                                     {
                                         type:SIGNUP_SUCESS,
                                         payload: {                                           
-                                            authMessage: `Usuario cadastrado com sucesso!`,
-                                            userMail: user.email
+                                            authMessage: `Usuario cadastrado com sucesso! Verifique seu e-mail.`,
+                                            userMail: user.email,
+                                            verified: false
                                         }                                      
                                   })
+                         
                                 }else{
                                     dispatch(
                                         {
@@ -31,6 +43,7 @@ export const signup = (email,password) => {
                                                 authMessage: `Não foi possivel conectar`,      
                                             }                                     
                                       })
+                               
                                 }
                             }
                     )//firebase.auth().onAuthStateChanged
@@ -73,14 +86,27 @@ export const signin = (email,password,callback)=>{
             .signInWithEmailAndPassword(email,password)
             .then(
                 (data)=>{
+                   if(!data.user.emailVerified){
+                    dispatch({
+                        type: EMAIL_NOT_VERIFIED,
+                        payload: {authMessage:`E-mail não verificado`,
+                         verified:false  },
+                      
+                        })
+
+                   }
+                   else{
                     dispatch({
                         type: SIGNIN_SUCESS,
                         payload: {authMessage:`Login efetuado com sucesso`,
-                        userMail:data.user.email  }
+                        userMail:data.user.email,
+                        verified:true  },
+                        
                         })
 
-                    callback()
-                       
+                 
+                   }
+                   callback(data.user)   
                 }
             )
             .catch(
@@ -115,7 +141,7 @@ export const signout =(callback)=>{
                 ()=>{
                     dispatch({
                         type: SIGNOUT_SUCESS,
-                        payload: {authMessage:`Signout efetuado com sucesso`}
+                        payload: {authMessage:`Signout efetuado com sucesso`, verified: false}
                     })
                     callback()
                 }
@@ -138,5 +164,11 @@ export const signout =(callback)=>{
             callback()
 
         }
+    }
+}
+
+export const resetAuthMsg= () => {
+    return{
+        type: RESET_AUTH_MSG
     }
 }
