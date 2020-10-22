@@ -21,7 +21,9 @@ import './App.css';
 //import BasicForm from './components/parte03/12_basicFormV8FormikYup'
 
 //Parte04
-import BasicForm from './components/parte04/13_basicFormV9FormikYup'
+//import BasicForm from './components/parte04/13_basicFormV9FormikYup'
+//import BasicForm from './components/parte04/14_basicFormV10FormikYup'
+import BasicForm from './components/parte04/15_basicFormV11FormikYup'
 
 
 
