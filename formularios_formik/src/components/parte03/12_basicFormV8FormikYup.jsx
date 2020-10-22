@@ -42,11 +42,19 @@ export default ()=>{
             )
         }
         onSubmit= {
-            values =>{
-            console.log(values.firstName)
-            console.log(values.lastName)
-            console.log(values.email)
-            console.log(values.bigText)
+           (values, {setSubmitting})  =>{
+
+                setTimeout(
+                    ()=>{
+                         console.log(values.firstName)
+                         console.log(values.lastName)
+                         console.log(values.email)
+                         console.log(values.colors)
+                         console.log(values.bigText)
+                    },
+                    1000
+                )
+      
             }
          }
         >
@@ -130,7 +138,7 @@ export default ()=>{
                                     
                                 />
                                  <div   className='invalid-feedback'>
-                                         <ErrorMessage name='bigText'/>
+                                         <ErrorMessage name='bigTextcd'/>
                                 </div>
                           </div>
                           <div>

@@ -18,7 +18,11 @@ import './App.css';
 //import BasicForm from './components/parte03/09_basicFormV5FormikYup'
 //import BasicForm from './components/parte03/10_basicFormV6FormikYup'
 //import BasicForm from './components/parte03/11_basicFormV7FormikYup'
-import BasicForm from './components/parte03/12_basicFormV8FormikYup'
+//import BasicForm from './components/parte03/12_basicFormV8FormikYup'
+
+//Parte04
+import BasicForm from './components/parte04/13_basicFormV9FormikYup'
+
 
 
 function App() {
