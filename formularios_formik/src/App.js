@@ -12,7 +12,13 @@ import './App.css';
 //import BasicForm from './components/parte02/05_basicFormV0Formik'
 //import BasicForm from './components/parte02/06_basicFormV2Formik'
 //import BasicForm from './components/parte02/07_basicFormV3Formik'
-import BasicForm from './components/parte02/08_basicFormV4Formik'
+//import BasicForm from './components/parte02/08_basicFormV4Formik'
+
+//Parte03
+//import BasicForm from './components/parte03/09_basicFormV5FormikYup'
+//import BasicForm from './components/parte03/10_basicFormV6FormikYup'
+//import BasicForm from './components/parte03/11_basicFormV7FormikYup'
+import BasicForm from './components/parte03/12_basicFormV8FormikYup'
 
 
 function App() {
